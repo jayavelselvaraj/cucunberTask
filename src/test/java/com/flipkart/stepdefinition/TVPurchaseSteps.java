@@ -2,20 +2,17 @@ package com.flipkart.stepdefinition;
 
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
+
 
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class TVPurchaseSteps {
 
@@ -49,9 +46,9 @@ public class TVPurchaseSteps {
 	}
 	@When("user search tv {string}")
 	public void user_search_tv(String names) {
-		MobilePurchaseSteps.driver.findElement(By.name("q")).sendKeys(names,Keys.ENTER);
-		// WebElement user = MobilePurchaseSteps.driver.findElement(By.xpath("//input[@type ='text']"));
-		//   user.sendKeys(names,Keys.ENTER);
+		//MobilePurchaseSteps.driver.findElement(By.name("q")).sendKeys(names,Keys.ENTER);
+		 WebElement user = MobilePurchaseSteps.driver.findElement(By.xpath("//input[@type ='text']"));
+		   user.sendKeys(names,Keys.ENTER);
 	}
 }
 

@@ -16,39 +16,33 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@tv
 Feature: Tv Purchase
   I want to use this template for my feature file
-
-  @tag1
-  Scenario: Tv
-    Given user launches flipkart application
+ Background:
+   Given user launches flipkart application
     And user login into flipkart
+    @smoke
+  Scenario: Tv
     When user search tv
     And user choose the tv and doing payments
     Then user receive order confirmation message
-
+@smoke @sanity
   Scenario: one dimensional list
-    Given user launches flipkart application
-    And user login into flipkart
     When user search tv  by using one dimensional list
       | samsungtv | haiertv | lgtv |
     And user choose the tv and doing payments
     Then user receive order confirmation message
 
   Scenario: one dimensional map
-    Given user launches flipkart application
-    And user login into flipkart
     When user search tv  by using one dimensional map
       | tv1 | samsungtv |
       | tv2 | haiertv  |
       | tv3 | lgtv     |
     And user choose the tv and doing payments
     Then user receive order confirmation message
-    
+    @smoke @sanity @java
 Scenario Outline: All Tvs
-    Given user launches flipkart application
-    And user login into flipkart
     When user search tv "<Telivisions>"
     And user choose the tv and doing payments
     Then user receive order confirmation message
